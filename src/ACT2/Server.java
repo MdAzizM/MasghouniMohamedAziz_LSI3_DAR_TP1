@@ -13,6 +13,7 @@ public class Server {
 
                 InputStream is = socketClient.getInputStream();
                 int nb = is.read();
+                System.out.println("Multipying "+nb+" * 5");
                 int x = nb * 5;
 
                 OutputStream os = socketClient.getOutputStream();

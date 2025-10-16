@@ -7,8 +7,12 @@ public class Server {
     public static void main(String[] args){
         try{
             int port = 8000;
-            ServerSocket serveur = new ServerSocket(port);
-            System.out.println("server online on "+port);
+            String hostIP = "192.168.100.148";
+            InetAddress ADDR = InetAddress.getByName(hostIP);
+
+            ServerSocket serveur = new ServerSocket();
+            serveur.bind(new InetSocketAddress(ADDR, port));
+            System.out.println("server online on "+hostIP+" : "+port);
             while (true){
                 Socket socketClient = serveur.accept();
                 System.out.println("New Client connected!\nClient IP: "+socketClient.getInetAddress());
